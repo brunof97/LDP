@@ -12,14 +12,26 @@ package LDP;
 public class PortaContentores extends Navio {
      private int maxContentores;
     
+    /**
+     *
+     * @param matricula
+     */
     public PortaContentores(String matricula){
         super(matricula);
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMaxContentores() {
         return maxContentores;
     }
 
+    /**
+     *
+     * @param maxContentores
+     */
     public void setMaxContentores(int maxContentores) {
         this.maxContentores = maxContentores;
     }

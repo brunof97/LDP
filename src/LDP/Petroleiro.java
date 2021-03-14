@@ -12,14 +12,26 @@ package LDP;
 public class Petroleiro extends Navio {
         private float capCarga;
     
+    /**
+     *
+     * @param matricula
+     */
     public Petroleiro(String matricula){
        super(matricula);
     }
 
+    /**
+     *
+     * @return
+     */
     public float getCapCarga() {
         return capCarga;
     }
 
+    /**
+     *
+     * @param capCarga
+     */
     public void setCapCarga(float capCarga) {
         this.capCarga = capCarga;
     }

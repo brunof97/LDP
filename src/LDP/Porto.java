@@ -13,17 +13,24 @@ import java.util.ArrayList;
  */
 public class Porto {
         
-    private  ArrayList<aep.Navio> navio =new  ArrayList<aep.Navio>();
+    private  ArrayList<Navio> navio =new  ArrayList<Navio>();
     private int maxNavios=0;
     
-    
+    /**
+     *
+     * @param maxNavios
+     */
     public Porto(int maxNavios){
         this.maxNavios=maxNavios;
     }
     
+    /**
+     *Adiciona um navio
+     * @param n
+     */
     public void  AddNavio (aep.Navio n){ 
         if (navio.size()<maxNavios){
-            for(aep.Navio n1: navio ){
+            for(Navio n1: navio ){
             if(n.getMatricula()== n1.getMatricula()){
                 System.out.println("Este navio ja existe");
             }else{
@@ -36,42 +43,50 @@ public class Porto {
            
     }
     
-    
+    /**
+     *Devolve a qauntidade de contentores
+     * @return
+     */
     public int QuantidadeContentores(){
        int total=0;
-       for(aep.Navio n1:navio){
-           if(n1 instanceof aep.PortaContentores){
-               total+=((aep.PortaContentores) n1).getMaxContentores();
+       for(Navio n1:navio){
+           if(n1 instanceof PortaContentores){
+               total+=((PortaContentores) n1).getMaxContentores();
            }
        }
        
        return total;
     }
     
-    
-    
-    
-   public int CargaTotal(){
+    /**
+     *Devolve a acarga total dos navios
+     * @return
+     */
+    public int CargaTotal(){
        int total=0;
-       for(aep.Navio n1:navio){
-           if(n1 instanceof aep.PortaContentores){
-               total+=((aep.PortaContentores) n1).getMaxContentores()*10;
+       for(Navio n1:navio){
+           if(n1 instanceof PortaContentores){
+               total+=((PortaContentores) n1).getMaxContentores()*10;
            }
-           if(n1 instanceof aep.Petroleiro){
-               total+=((aep.Petroleiro) n1).getCapCarga();
+           if(n1 instanceof Petroleiro){
+               total+=((Petroleiro) n1).getCapCarga();
            }
        }
        
        return total;
    }
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        aep.Porto p =new aep.Porto(5);
+        Porto p =new Porto(5);
         
-        aep.Navio n1=new aep.Navio("1234");
-        aep.PortaContentores c1=new aep.PortaContentores("2345");
+        Navio n1=new Navio("1234");
+        PortaContentores c1=new PortaContentores("2345");
         c1.setMaxContentores(3);
-        aep.Petroleiro p1=new aep.Petroleiro("3456");
+        Petroleiro p1=new Petroleiro("3456");
         p1.setCapCarga(500);
         
        p.AddNavio(n1);
